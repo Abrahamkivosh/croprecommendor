@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="row" >
+    <h1 class="col-md-12 capitalize text text-center text-primary pb-2 " > Predict Crop to plant in your Firm</h1>
+     </div>
+    
+        <div class="card-columns row ">
+        
+            <div class="card col-md-8 ">
+                <img class="card-img-top" src="#" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Your Soil Content </h4>
+                    <p class="card-text">
+                    <div class="container">
+                        <form method="POST" action="/results" class="row" >
+                        {% csrf_token %}
+                            <div class="mb-3 col-md-6">
+                                <label for="ni" class="col-sm-1-12 col-form-label">Nitrogen</label>
+                                <div class="col-sm-1-12">
+                                    <input type="number"   class="form-control" name="nitrogen" id="ni" placeholder="">
+                                </div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="pho" class="col-sm-1-12 col-form-label">Phosphorus</label>
+                                <div class="col-sm-1-12">
+                                    <input type="number"   class="form-control" name="phosphorus" id="pho" placeholder="">
+                                </div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="potassium" class="col-sm-1-12 col-form-label">Potassium</label>
+                                <div class="col-sm-1-12">
+                                    <input type="number"   class="form-control" name="potassium" id="potassium" placeholder="">
+                                </div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="temperature" class="col-sm-1-12 col-form-label">Temperature</label>
+                                <div class="col-sm-1-12">
+                                    <input type="number"   class="form-control" name="temperature" id="temperature" placeholder="">
+                                </div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="humidity" class="col-sm-1-12 col-form-label">Humidity</label>
+                                <div class="col-sm-1-12">
+                                    <input type="number"   class="form-control" name="humidity" id="humidity" placeholder="">
+                                </div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="ph" class="col-sm-1-12 col-form-label">pH</label>
+                                <div class="col-sm-1-12">
+                                    <input type="number"   class="form-control" name="ph" id="ph" placeholder="">
+                                </div>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="Rainfall" class="col-sm-1-12 col-form-label">Rainfall</label>
+                                <div class="col-sm-1-12">
+                                    <input type="number"   class="form-control" name="rainfall" id="Rainfall" placeholder="">
+                                </div>
+                            </div> 
+         
+                            <div class="mb-3 row">
+                                <div class="offset-sm-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Analyse</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    </p>
+                </div>
+            </div>
+            <div class="card col-md-4 ">
+                <img class="card-img-top" src="#" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Recommended Crop to plant</h4>
+                  
+                    {% if crop|length %}
+                      <p class="card-text"> <h2> {{ crop }} </h2></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+   
+{% endblock content %}
+{% block footer %}
+<div class=" text-center pt-4 " >
+     Copyright {{ time }}
+</div>
+{% endblock footer %}

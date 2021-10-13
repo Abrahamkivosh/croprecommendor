@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>We change world</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'bootstrap/all.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    
+    </head>
+    <body>
+    
+       
+        {% block content %}
+        <p>my block content goes here</p>
+        {% endblock content %}
+
+        {% block footer %}
+        footer is here
+        {% endblock footer %}
+
+        
+        
+        <script src="{% static 'bootstrap/bootstrap.min.js' %}" async defer>
+       
+        </script>
+    </body>
+</html>
